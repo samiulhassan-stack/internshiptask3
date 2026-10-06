@@ -13,12 +13,12 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Initialize SQLite database
-const db = new sqlite3.Database('./database.db', (err) => {
+// Initialize SQLite database (in-memory for Vercel serverless)
+const db = new sqlite3.Database(':memory:', (err) => {
   if (err) {
     console.error('Error opening database:', err);
   } else {
-    console.log('Connected to SQLite database');
+    console.log('Connected to SQLite database (in-memory mode)');
     initializeDatabase();
   }
 });
