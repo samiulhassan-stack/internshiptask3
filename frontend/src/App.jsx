@@ -3,7 +3,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import './App.css';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 function App() {
   const [todos, setTodos] = useState([]);
